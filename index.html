@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>店铺评价素材页</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="loginView" class="panel login-panel">
+        <div>
+          <p class="eyebrow">NFC Review Page</p>
+          <h1>店铺评价素材页</h1>
+          <p class="muted">输入访问码后，页面会随机生成一条 55-150 字的评价参考文案，并展示 1 张店面环境图和 1 张美甲图片。NFC 链接可使用 ?code=8888 自动进入。</p>
+        </div>
+
+        <label class="field">
+          <span>访问码</span>
+          <input id="accessCode" type="password" inputmode="numeric" placeholder="请输入访问码" autocomplete="off" />
+        </label>
+
+        <button id="loginButton" class="primary-button" type="button">进入页面</button>
+        <p id="loginError" class="error-text" role="alert"></p>
+      </section>
+
+      <section id="reviewView" class="review-layout" hidden>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Review Draft</p>
+            <h1>今日评价参考</h1>
+          </div>
+          <button id="refreshButton" class="ghost-button" type="button">换一条</button>
+        </header>
+
+        <section class="panel">
+          <div class="section-heading">
+            <h2>评价文案</h2>
+            <button id="copyButton" class="small-button" type="button">复制</button>
+          </div>
+          <p id="reviewText" class="review-text"></p>
+          <div id="keywordList" class="keyword-list"></div>
+          <p class="notice">请根据真实体验修改后再发布，避免发布与实际体验不符的内容。</p>
+        </section>
+
+        <section class="panel">
+          <div class="section-heading">
+            <h2>推荐图片</h2>
+            <span id="imageCount" class="muted"></span>
+          </div>
+          <div id="imageGrid" class="image-grid"></div>
+        </section>
+
+        <a id="reviewLink" class="primary-button link-button" href="#" target="_blank" rel="noopener">前往评价页面</a>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./image-manifest.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
