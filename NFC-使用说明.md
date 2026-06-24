@@ -20,21 +20,7 @@ https://elaine0021.github.io/nail-review-page/
 建议写入 NFC 的地址是：
 
 ```text
-https://elaine0021.github.io/nail-review-page/?code=8888
-```
-
-这样顾客碰 NFC 后会自动进入页面，不需要再手动输入访问码。
-
-如果你想让顾客必须输入访问码，则写入：
-
-```text
-https://your-domain.com
-```
-
-默认访问码在 `data.js` 里：
-
-```js
-accessCode: "8888",
+https://elaine0021.github.io/nail-review-page/
 ```
 
 ## 部署方式
@@ -77,7 +63,7 @@ reviewUrl: "https://example.com/replace-with-your-review-link",
 2. 手机安装 NFC Tools。
 3. 打开 NFC Tools，选择写入。
 4. 添加记录，选择 URL。
-5. 填入你的网页链接，例如 `https://elaine0021.github.io/nail-review-page/?code=8888`。
+5. 填入你的网页链接，例如 `https://elaine0021.github.io/nail-review-page/`。
 6. 点击写入。
 7. 把 NFC 标签贴近手机 NFC 感应区。
 8. 用另一台手机测试是否能打开网页。

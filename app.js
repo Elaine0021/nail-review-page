@@ -1,10 +1,6 @@
 ﻿const config = window.REVIEW_PAGE_CONFIG;
 
-const loginView = document.querySelector("#loginView");
 const reviewView = document.querySelector("#reviewView");
-const accessCode = document.querySelector("#accessCode");
-const loginButton = document.querySelector("#loginButton");
-const loginError = document.querySelector("#loginError");
 const refreshButton = document.querySelector("#refreshButton");
 const copyButton = document.querySelector("#copyButton");
 const reviewText = document.querySelector("#reviewText");
@@ -92,29 +88,6 @@ function refreshReview() {
   renderImages();
 }
 
-function showReviewPage() {
-  loginError.textContent = "";
-  loginView.hidden = true;
-  reviewView.hidden = false;
-  refreshReview();
-}
-
-function enterPage() {
-  if (accessCode.value.trim() !== config.accessCode) {
-    loginError.textContent = "访问码不正确，请重新输入。";
-    return;
-  }
-
-  showReviewPage();
-}
-
-loginButton.addEventListener("click", enterPage);
-accessCode.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    enterPage();
-  }
-});
-
 refreshButton.addEventListener("click", refreshReview);
 copyButton.addEventListener("click", async () => {
   await navigator.clipboard.writeText(reviewText.textContent);
@@ -125,10 +98,4 @@ copyButton.addEventListener("click", async () => {
 });
 
 reviewLink.href = config.reviewUrl;
-
-const params = new URLSearchParams(window.location.search);
-const urlCode = params.get("code");
-
-if (urlCode === config.accessCode) {
-  showReviewPage();
-}
+refreshReview();

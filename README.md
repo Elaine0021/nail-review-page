@@ -5,7 +5,7 @@
 NFC 推荐写入链接：
 
 ```text
-https://elaine0021.github.io/nail-review-page/?code=8888
+https://elaine0021.github.io/nail-review-page/
 ```
 
 页面会随机生成 55-150 字评价，随机展示 1 张店面环境图和 1 张美甲图片。

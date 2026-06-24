@@ -1,5 +1,4 @@
 window.REVIEW_PAGE_CONFIG = {
-  accessCode: "8888",
   reviewUrl: "https://m.dianping.com/shopshare/HakNFStxpv5papnI?msource=Appshare2021&utm_source=shop_share&shoptype=&shopcategoryid=&isoversea=&shareid=cVZHTiSkiH_1782270143",
   reviewLength: {
     min: 55,
