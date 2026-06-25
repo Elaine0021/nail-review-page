@@ -17,13 +17,9 @@ function shuffle(items) {
   return [...items].sort(() => Math.random() - 0.5);
 }
 
-function allKeywords() {
-  return Object.values(config.keywordGroups).flat();
-}
-
 function pickKeywords() {
   const count = Math.floor(Math.random() * 3) + 3;
-  return shuffle([...new Set(allKeywords())]).slice(0, count);
+  return shuffle([...new Set(config.keywords)]).slice(0, count);
 }
 
 function joinKeywords(keywords) {
@@ -71,19 +67,28 @@ function renderImages() {
       card.innerHTML = `<div class="placeholder">${image.title}<br>请把图片放到 ${image.src.replace("./", "")}</div>`;
     };
 
+    const caption = document.createElement("p");
+    caption.className = "image-caption";
+    caption.textContent = image.title === "店面环境" ? "环境照片" : "作品照片";
+
     card.appendChild(img);
+    card.appendChild(caption);
     imageGrid.appendChild(card);
   });
 }
 
 function refreshReview() {
   const keywords = pickKeywords();
-  const template = sample(config.templates);
-  let text = template.replace("{keywords}", joinKeywords(keywords));
-  if (text.length < config.reviewLength.min) {
-    text += "整体体验很顺心，做完之后也很喜欢。";
+  const useLong = Math.random() < 0.7;
+  const templates = useLong ? config.longTemplates : config.shortTemplates;
+  const limits = useLong
+    ? { min: config.reviewLength.longMin, max: config.reviewLength.longMax }
+    : { min: config.reviewLength.shortMin, max: config.reviewLength.shortMax };
+  let text = sample(templates).replace("{keywords}", joinKeywords(keywords));
+  while (text.length < limits.min) {
+    text += useLong ? "整体做下来很顺心，成品也越看越喜欢。" : "成品也很喜欢。";
   }
-  reviewText.textContent = text.slice(0, config.reviewLength.max);
+  reviewText.textContent = text.slice(0, limits.max);
   renderKeywords(keywords);
   renderImages();
 }
