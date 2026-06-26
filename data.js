@@ -1,5 +1,5 @@
 window.REVIEW_PAGE_CONFIG = {
-  reviewUrl: "https://m.dianping.com/shopshare/k1DhivdiTxLfydS6?msource=Appshare2021&utm_source=shop_share&shoptype=&shopcategoryid=&isoversea=&shareid=NullTdXY4p_1782345967",
+  reviewUrl: "https://m.dianping.com/shopshare/k1DhivdiTxLfydS6?msource=Appshare2021&utm_source=shop_share&shoptype=&shopcategoryid=&isoversea=&shareid=DFHk8rRCEM_1782468740",
   reviewLength: {
     shortMin: 50,
     shortMax: 100,
